@@ -18,7 +18,7 @@ const ImageList = [
     img: Image2,
     title: "The Garden of Words",
     description:
-      "The story of a schoolboy, Takao, who's in the habit of walking through a park on wet days...",
+      "The story of a schoolboy, Takao, who's in the habit of walking through a park on wet days.",
     link: "https://hianime.pe/watch/the-garden-of-words-414?ep=57988",
   },
   {
@@ -26,16 +26,15 @@ const ImageList = [
     img: Image3,
     title: "ONE PIECE",
     description:
-      "Luffy is a young adventurer who has longed for a life of freedom...",
+      "Luffy is a young adventurer who has longed for a life of freedom.",
     link: "https://hianime.pe/watch/one-piece-100?ep=2142",
   },
 ];
 
-
 const HeroSection = () => {
   var settings = {
     dots: false,
-    arrows: true,
+    arrows: false,
     infinite: true,
     speed: 800,
     slidesToScroll: 1,
@@ -79,8 +78,8 @@ const HeroSection = () => {
                     data-aos-duration="500"
                     data-aos-delay="300"
                   >
-                    <button className="bg-gradient-to-r from-primary to-primary/50 hover:scale-105 duration-200 text-white py-2 px-4 rounded-full" >
-                    <a href={data.link}>Watch Now</a>
+                    <button className="bg-gradient-to-r from-primary to-primary/50 hover:scale-105 duration-200 text-white py-2 px-4 rounded-full">
+                      <a href={data.link}>Watch Now</a>
                     </button>
                   </div>
                 </div>
@@ -90,7 +89,7 @@ const HeroSection = () => {
                     <img
                       src={data.img}
                       alt={data.title}
-                      className="w-[450px] h-[350px] sm:w-[700px] sm:h-[400px] object-cover rounded-xl"
+                      className="w-[500px] h-[300px] sm:w-[500px] sm:h-[350px] md:w-[600px] md:h-[250px] lg:w-[700px] lg:h-[400px] object-cover rounded-xl"
                     />
                   </div>
                 </div>

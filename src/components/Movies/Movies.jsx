@@ -89,12 +89,18 @@ const Movies = ({ searchTerm = "", shouldScroll = false }) => {
   // ⬇ Scroll to first match on search
   useEffect(() => {
     if (shouldScroll && searchTerm && firstMatchRef.current) {
-      firstMatchRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      firstMatchRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   }, [searchTerm, shouldScroll]);
 
   return (
-    <div id="movies" className="bg-white dark:bg-black text-black dark:text-white py-10">
+    <div
+      id="movies"
+      className="bg-white dark:bg-black text-black dark:text-white py-10"
+    >
       <div className="container">
         {/* Head Section */}
         <div className="text-left mb-10">
@@ -102,7 +108,10 @@ const Movies = ({ searchTerm = "", shouldScroll = false }) => {
           <h1 data-aos="fade-up" className="text-3xl font-bold mb-4">
             Anime Movies
           </h1>
-          <p data-aos="fade-up" className="text-lg text-gray-600 dark:text-gray-300">
+          <p
+            data-aos="fade-up"
+            className="text-lg text-gray-600 dark:text-gray-300"
+          >
             Anime movies are standalone films known for stunning visuals and
             emotional storytelling. They’re perfect for short but powerful
             viewing experiences.
@@ -116,36 +125,38 @@ const Movies = ({ searchTerm = "", shouldScroll = false }) => {
               No results found for "{searchTerm}"
             </p>
           ) : (
-          displayedMovies.map((data, index) => (
-            <div
-              key={data.id}
-              ref={index === 0 ? firstMatchRef : null}
-              className="rounded-2xl bg-white dark:bg-gray-800 relative shadow-xl duration-300 group max-w-[300px]"
-            >
-              <div className="flex justify-center items-center">
-                <div data-aos="zoom-in" data-aos-once="true">
-                  <img
-                    src={data.img}
-                    alt={data.title}
-                    className="h-[280px] w-[200px] object-cover rounded-xl shadow-md mx-auto transition-transform duration-300 group-hover:scale-105"
-                  />
+            displayedMovies.map((data, index) => (
+              <div
+                key={data.id}
+                ref={index === 0 ? firstMatchRef : null}
+                className="rounded-2xl bg-white dark:bg-gray-800 relative shadow-xl duration-300 group max-w-[300px]"
+              >
+                <div className="flex justify-center items-center">
+                  <div data-aos="zoom-in" data-aos-once="true">
+                    <img
+                      src={data.img}
+                      alt={data.title}
+                      className="h-[280px] w-[200px] object-cover rounded-xl shadow-md mx-auto transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold min-h-[3rem] leading-tight">
+                    {data.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {data.duration}
+                  </p>
+                  <div className="flex justify-center items-center gap-1">
+                    <FaStar className="text-yellow-500" />
+                    <span>{data.rating}</span>
+                  </div>
+                  <button className="bg-primary text-white py-1 px-4 rounded-full mt-4 transition-transform duration-300 hover:scale-105">
+                    <a href={data.link}>Watch Now</a>
+                  </button>
                 </div>
               </div>
-              <div className="p-4 text-center">
-                <h3 className="font-semibold">{data.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {data.duration}
-                </p>
-                <div className="flex justify-center items-center gap-1">
-                  <FaStar className="text-yellow-500" />
-                  <span>{data.rating}</span>
-                </div>
-                <button className="bg-primary text-white py-1 px-4 rounded-full mt-4 transition-transform duration-300 hover:scale-105">
-                  <a href={data.link}>Watch Now</a>
-                </button>
-              </div>
-            </div>
-          ))
+            ))
           )}
         </div>
 
